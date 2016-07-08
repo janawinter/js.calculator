@@ -7,10 +7,10 @@ h2 {
   font-family: arial;
 }
 
-h3 {
+p {
   text-align: center;
-  font-family: arial;
-   font-size: 23px;
+  font-family:arial;
+  font-size:20px;
 }
 
 .calculator {
@@ -21,6 +21,7 @@ h3 {
   margin-left: auto;
   margin-right: auto;
   width:500px;
+  padding-bottom: 20px;
 }
 #total {
   background-color: #E9E9E9;
