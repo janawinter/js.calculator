@@ -1,60 +1,71 @@
-
+//wait for DOM to be ready
 $(document).ready(function(){
+  //declare testNumLength function
     var testNumLength = function(number) {
           if (number.length > 9) {
-              totaldiv.text(number.substr(number.length-9,9));
+              totaldiv.val(number.substr(number.length-9,9));
               if (number.length > 15) {
                   number = "";
-                  totaldiv.text("Err");
+                  totaldiv.val("Err");
               }
           }
       };
-      var number = "";
-      var newnumber = "";
-      var operator = "";
-      var totaldiv = $("#total");
-      totaldiv.text("0");
+    //declaring the variables
+    var number = "";
+    var newnumber = "";
+    var operator = "";
+    var totaldiv = $("#total");
+      totaldiv.val("0");
 
-      $(".number").click(function() {
+    //number class click function
+    $(".number").click(function() {
+      if (number.indexOf(".")> -1 && $(this).text()===".") {
+        //do nothing
+
+      }
+      else {
       number += $(this).text();
       totaldiv.val(number);
       testNumLength(number);
+      }
+
       });
-      $(".operator").click(function() {
+    //operator class function
+    $(".operator").click(function() {
       operator = $(this).text();
       newnumber = number;
       number = "";
-      //totaldiv.val("");
       });
-      $(".clear,.allclear").click(function() {
+    //clear and allclear functions
+    $(".clear,.allclear").click(function() {
       number = "";
       totaldiv.val("0");
-      if ($(this).hasClass("allclear")) {
+    if($(this).hasClass("allclear")) {
         newnumber = "";
       }
       });
-
- $(".equals").click(function() {
-    if (operator === "+") {
-      result=parseInt(newnumber, 10) + parseInt(number, 10);
+    //equals function
+    $(".equals").click(function() {
+     if (operator === "+") {
+      //turn result newnumber string, radix
+      result=parseFloat(newnumber, 10) + parseFloat(number, 10);
       number = result.toString(10);
-
     } else if (operator === "-") {
-   result=parseInt(newnumber, 10) -  parseInt(number, 10);
+   result=parseFloat(newnumber, 10) -  parseFloat(number, 10);
 
       number = result.toString(10);
     } else if (operator === "÷") {
-   result=parseInt(newnumber, 10) / parseInt(number, 10);
+   result=parseFloat(newnumber, 10) / parseFloat(number, 10);
       number = result.toString(10);
     }
      else if (operator === "X") {
- result=parseInt(newnumber, 10) * parseInt(number, 10);
+ result=parseFloat(newnumber, 10) * parseFloat(number, 10);
       number = result.toString(10);
  }
-
- totaldiv.val(number);
- testNumLength(number);
- number="";
- newnumber="";
+ //call the functions
+    totaldiv.val(number);
+    testNumLength(number);
+    number="";
+    newnumber="";
  });
  });
