@@ -1,2 +1,2 @@
 # js.calculator
-pair programming js calculator excercise
+pair programming js calculator assignment 
