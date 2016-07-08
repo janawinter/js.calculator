@@ -28,7 +28,6 @@ $(document).ready(function(){
       //set number to equal nothing
       number = "";
     });
-
     //when you click on clear and allclear classes
     $(".clear,.allclear").click(function() {
        //number = nothing
